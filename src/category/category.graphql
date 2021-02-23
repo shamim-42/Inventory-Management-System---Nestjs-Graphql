@@ -1,0 +1,30 @@
+type Category {
+  id: Int
+  category: String
+}
+
+input CategoryInput {
+  category: String!
+}
+
+type Query {
+  categories: [Category]
+  category(id: ID!): Category
+}
+
+type CategoryUpdateResponse {
+  categoryId: Int
+  message: String
+  statusCode: Int
+}
+
+type CategoryDeleteResponse {
+  message: String
+  statusCode: Int
+}
+
+type Mutation {
+  createCategory(data: CategoryInput!): Category
+  updateCategory(id: ID!): CategoryUpdateResponse
+  delCategory(id: ID!): CategoryDeleteResponse
+}

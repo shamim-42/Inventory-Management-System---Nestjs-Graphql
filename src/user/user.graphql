@@ -1,0 +1,38 @@
+type User {
+  id: Int!
+  name: String!
+  created: String
+  phone: String
+  email: String
+  shops: [Shop]
+}
+
+type Auth {
+  name: String!
+  token: String!
+}
+
+
+
+input LoginInputData {
+  phone: String!,
+  password: String!
+}
+
+input RegistrationInputData {
+  name: String!,
+  phone: String!
+  password: String!
+}
+
+type Query {
+  users(page: Int): [User!]
+  user(phone: String!): User
+  userShops(userId: Int!): User
+  whoami: User
+}
+
+type Mutation {
+  login(data: LoginInputData): Auth
+  register(data: RegistrationInputData): Auth
+}

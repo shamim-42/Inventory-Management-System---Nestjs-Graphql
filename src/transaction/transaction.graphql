@@ -1,0 +1,69 @@
+enum modeOfPayment {
+  CASH
+  POS
+  CASH_AND_POS
+}
+
+type Transaction {
+  id: Int!
+  receipt_number: ID!
+  mode_of_payment: modeOfPayment
+  cumulative_amount: Float!
+  amount_tendered: Float
+  change_due: Float
+  vat_percentage: Float
+  vat_value: Float
+  discount_percentage: Float
+  discount_value: Float
+  total_items: Int
+  customer_phone: String
+  customer_email: String
+  soft_removed: Boolean
+  seller_shop: Shop
+  buyer_shop: Shop
+  created_by: User
+  updated_by: User
+  removed_by: User
+}
+
+input CreateTransactionInput {
+  mode_of_payment: modeOfPayment!
+  cumulative_amount: Float!
+  amount_tendered: Float!
+  change_due: Float
+  vat_percentage: Float
+  vat_value: Float!
+  discount_percentage: Float
+  discount_value: Float!
+  total_items: Int
+  customer_phone: String
+  customer_email: String
+  seller_shop: Int
+  buyer_shop: Int
+}
+
+input UpdateTransactionInput {
+  mode_of_payment: modeOfPayment
+  cumulative_amount: Float
+  amount_tendered: Float
+  change_due: Float
+  vat_percentage: Float
+  vat_value: Float
+  discount_percentage: Float
+  discount_value: Float
+  total_items: Int
+  customer_phone: String
+  customer_email: String
+  ## Seller and Buyer shouldn't be changed. This might cause of security issue.
+}
+
+type Query {
+  transactions: [Transaction]
+  transaction(id: Int!): Transaction
+}
+
+type Mutation {
+  createTransaction(data: CreateTransactionInput!): Transaction
+  updateTransaction(id: Int!, data: UpdateTransactionInput): Transaction
+  removeTransaction(id: Int!): String
+}

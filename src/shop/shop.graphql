@@ -1,0 +1,60 @@
+type Shop {
+  id: Int
+  name: String
+  description: String
+  logo: String
+  banner: String
+  products: [Product]
+  members: [User]
+}
+
+type Role {
+  id: Int
+  role: String
+}
+
+# type UserShops {
+#   id: Int
+#   # user: User
+#   shop: Shop
+#   role: Role
+# }
+
+input ShopCreateInput {
+  name: String!
+  description: String
+  logo: String
+  banner: String
+}
+
+input ShopUpdateInput {
+  name: String
+  description: String
+  logo: String
+  banner: String
+}
+
+input UserShopCreateInput {
+  user: Int # primary key of UserEntity
+  shop: Int # primary key of ShopEntity
+  role: Int # primary key of RoleEntity
+}
+
+
+type Query {
+  shops: [Shop]
+  shop(id: Int!): Shop
+  # usershops: [UserShops]
+  # usershop: UserShops
+}
+
+
+type Mutation {
+  createShop(data: ShopCreateInput!): Shop
+  updateShop(id: Int!, data: ShopUpdateInput!): Shop
+  addMember(shopId: Int!, userId: Int!): Shop
+  removeMember(shopId: Int!, userId: Int!): Shop
+  deleteShop(id: Int!): String
+
+  # createUserShop(data: UserShopCreateInput!): UserShops
+}
