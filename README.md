@@ -30,7 +30,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **1. User Registration.**
 
-```json
+```
   mutation{
     register(data: {
       name: "Abdullah Al Mahbub",
@@ -45,7 +45,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **2. User Login.**
 
-```json
+```
   mutation{
     login(data: {
       phone: "01995248464",
@@ -59,7 +59,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **3. Get All Users.**
 
-```json
+```
   query{
     users{
       name
@@ -70,7 +70,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **4. Create New Category.**
 
-```json
+```
   mutation{
     createCategory(data: {
       category: "Home Appliance"
@@ -82,7 +82,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **5. Get all Categories.**
 
-```json
+```
  query{
     categories{
       id
@@ -93,7 +93,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **6. Get a Category Detail.**
 
-```json
+```
  query{
   category(id: 1){
     category
@@ -104,7 +104,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **7. Create any Shop.**
 
-```json
+```
   mutation{
     createShop(data: {
       name: "Smart Mobile Factory"
@@ -119,7 +119,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **8. Update New Shop.**
 
-```json
+```
   mutation {
     updateShop(
       id: 15
@@ -134,7 +134,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **9. Get a Shop.**
 
-```json
+```
   query{
     shop(id: 3){
       name
@@ -151,7 +151,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **10. Get all Shop.**
 
-```json
+```
   query{
       shops{
         name
@@ -175,7 +175,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **11. Delete a Shop.**
 
-```json
+```
   mutation{
       deleteShop(id:1)
   }
@@ -184,7 +184,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **12. Create a product.**
 
-```json
+```
   mutation {
     createProduct(
       data: {
@@ -218,7 +218,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **13. Get All Products.**
 
-```json
+```
  query{
       products{
       	id
@@ -242,7 +242,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **14. Get a Product detail.**
 
-```json
+```
  query{
   product(id:1){
     id
@@ -266,7 +266,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **15.Update a product.**
 
-```json
+```
  mutation {
   updateProduct(id: 14, data: { name: "Seventeenth Product", shop: 3 }) {
     name
@@ -282,7 +282,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **16.Delete a product.**
 
-```json
+```
   mutation{
     deleteProduct(id: 29)
   }
@@ -292,7 +292,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **17.Add A member in specific shop.**
 
-```json
+```
   mutation{
       addMember(shopId: 3, userId: 1){
         name
@@ -313,7 +313,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **18.Remove A member from any specific shop.**
 
-```json
+```
   mutation{
       removeMember(shopId: 3, userId: 1){
         name
@@ -327,7 +327,7 @@ Authentication implemented with jwt but RBAC (role based access control is not i
 
 **19.Create a transaction between two Shop. (We would request to create a shop (like `Anonymous Shop`) for all general anonymous customers.**
 
-```json
+```
   mutation{
   createTransaction(data:{
     mode_of_payment: POS
@@ -376,7 +376,7 @@ N.B: there are three choices for **mode_of_payment**. `CASH`, `POS` and `CASH_AN
 
 **20. Update a transaction.**
 
-```json
+```
   mutation {
   updateTransaction(
     id: 24
@@ -435,7 +435,7 @@ N.B: there are three choices for **mode_of_payment**. `CASH`, `POS` and `CASH_AN
 
 **21. Get all transactions.**
 
-```json
+```
   query {
       transactions {
         id
@@ -474,7 +474,7 @@ N.B: there are three choices for **mode_of_payment**. `CASH`, `POS` and `CASH_AN
 ```
 **22. Get a transaction.**
 
-```json
+```
   query {
       transaction(id:7) {
         id
@@ -512,7 +512,7 @@ N.B: there are three choices for **mode_of_payment**. `CASH`, `POS` and `CASH_AN
 ```
 **23. Remove a transaction.**
 
-```json
+```
   mutation{
       removeTransaction(id:19)
   }
